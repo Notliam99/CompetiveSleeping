@@ -1,5 +1,6 @@
 "use client";
 
+import { useLogout } from "@privy-io/react-auth";
 import {
   LuBellRing,
   LuBrain,
@@ -13,6 +14,7 @@ import { useSwipeNavigation } from "@/app/hooks/useSwipeNavigation";
 
 export default function ProfilePage() {
   useSwipeNavigation();
+  const { logout } = useLogout();
 
   return (
     <div className="min-h-screen space-y-6 bg-violet-50 p-4 dark:bg-zinc-950">
@@ -97,7 +99,11 @@ export default function ProfilePage() {
             <LuBrain className="text-lg" />
             <span>Export Data</span>
           </button>
-          <button className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-red-600 transition-colors hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/30">
+          <button
+            type="button"
+            onClick={() => void logout()}
+            className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-red-600 transition-colors hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/30"
+          >
             <LuLogOut className="text-lg" />
             <span>Logout</span>
           </button>
