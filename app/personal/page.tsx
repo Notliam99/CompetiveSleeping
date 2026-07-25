@@ -16,6 +16,26 @@ export default function PersonalPage() {
         </p>
       </div>
 
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="rounded-lg bg-blue-50 p-4 dark:bg-zinc-800">
+          <p className="text-sm text-zinc-600 dark:text-zinc-400">
+            Tonight&apos;s Sleep
+          </p>
+          <p className="mt-1 text-2xl font-bold text-blue-600 dark:text-blue-400">
+            8h 24m
+          </p>
+        </div>
+
+        <div className="rounded-lg bg-green-50 p-4 dark:bg-zinc-800">
+          <p className="text-sm text-zinc-600 dark:text-zinc-400">
+            Weekly Average
+          </p>
+          <p className="mt-1 text-2xl font-bold text-green-600 dark:text-green-400">
+            7h 45m
+          </p>
+        </div>
+      </div>
+
       <div className="bg-zinc-50 dark:bg-zinc-800 rounded-lg p-4">
         <h2 className="font-semibold text-zinc-900 dark:text-white mb-4">
           Sleep Goal
