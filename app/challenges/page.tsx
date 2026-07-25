@@ -1,7 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { MdHourglassTop } from "react-icons/md";
+import {
+  LuBell,
+  LuClock3,
+  LuCloud,
+  LuTarget,
+  LuTrophy,
+  LuUsers,
+} from "react-icons/lu";
 import { useSwipeNavigation } from "@/app/hooks/useSwipeNavigation";
 
 const weekOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -54,8 +61,9 @@ export default function ChallengesPage() {
     <div className="flex h-full min-h-0 flex-col gap-3 overflow-hidden p-4">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <h1 className="mb-1 text-2xl font-bold text-zinc-900 dark:text-white">
-            🎯 Challenges
+          <h1 className="mb-1 flex items-center gap-2 text-2xl font-bold text-zinc-900 dark:text-white">
+            <LuTarget className="text-2xl text-violet-600 dark:text-violet-400" />
+            <span>Challenge</span>
           </h1>
           <p className="text-sm text-zinc-600 dark:text-zinc-400">
             Find opponents and join sleep tournaments.
@@ -63,21 +71,23 @@ export default function ChallengesPage() {
         </div>
         <div className="flex shrink-0 gap-2">
           <button className="flex h-12 w-12 items-center justify-center rounded-full border border-zinc-200 bg-white text-lg font-medium text-zinc-700 shadow-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200">
-            🔔
+            <LuBell className="text-xl" />
           </button>
           <button className="flex h-12 w-12 items-center justify-center rounded-full border border-zinc-200 bg-white text-lg font-medium text-zinc-700 shadow-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200">
-            👥
+            <LuUsers className="text-xl" />
           </button>
         </div>
       </div>
 
       <div className="grid grid-cols-2 gap-3">
-        <button className="flex items-center justify-center rounded-[1.5rem] border border-blue-200 bg-blue-50 p-4 text-center text-sm font-semibold text-blue-800 shadow-sm transition hover:opacity-90 dark:border-zinc-700 dark:bg-zinc-900 dark:text-blue-300">
-          Goal Setting
+        <button className="flex items-center justify-center gap-2 rounded-[1.5rem] border border-blue-200 bg-blue-50 p-4 text-center text-sm font-semibold text-blue-800 shadow-sm transition hover:opacity-90 dark:border-zinc-700 dark:bg-zinc-900 dark:text-blue-300">
+          <LuTarget className="text-lg" />
+          <span>Goal Setting</span>
         </button>
 
-        <button className="flex items-center justify-center rounded-[1.5rem] border border-fuchsia-200 bg-white p-4 text-center text-sm font-semibold text-fuchsia-700 shadow-sm transition hover:opacity-90 dark:border-zinc-700 dark:bg-zinc-900 dark:text-fuchsia-300">
-          Tournaments
+        <button className="flex items-center justify-center gap-2 rounded-[1.5rem] border border-fuchsia-200 bg-white p-4 text-center text-sm font-semibold text-fuchsia-700 shadow-sm transition hover:opacity-90 dark:border-zinc-700 dark:bg-zinc-900 dark:text-fuchsia-300">
+          <LuTrophy className="text-lg" />
+          <span>Tournaments</span>
         </button>
       </div>
 
@@ -116,7 +126,7 @@ export default function ChallengesPage() {
             <div className="relative flex h-36 w-32 items-center justify-center rounded-[1.75rem] border border-violet-200 bg-gradient-to-br from-violet-50 to-white p-3 shadow-sm dark:border-violet-900/40 dark:from-violet-950/40 dark:to-zinc-900">
               <div className="absolute inset-0 rounded-[1.75rem] border border-violet-100 dark:border-violet-900/30" />
               <div className="relative flex h-24 w-20 items-center justify-center">
-                <MdHourglassTop className="text-[5rem] text-violet-300/90 dark:text-violet-900/70" />
+                <LuClock3 className="text-[5rem] text-violet-300/90 dark:text-violet-900/70" />
               </div>
             </div>
             <div className="text-center">
@@ -129,8 +139,8 @@ export default function ChallengesPage() {
 
       <button className="flex min-h-[72px] w-full items-center justify-center rounded-[999px] bg-transparent px-4 py-2 text-left transition hover:opacity-95">
         <span className="inline-flex items-center justify-center gap-3 rounded-[999px] bg-violet-600 px-10 py-5 text-xl font-semibold text-white shadow-lg shadow-violet-200 dark:bg-violet-500 dark:shadow-violet-950/40">
-          <span className="text-3xl">☁️</span>
-          Search
+          <LuCloud className="text-2xl" />
+          <span>Search</span>
         </span>
       </button>
     </div>
