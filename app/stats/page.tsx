@@ -32,7 +32,7 @@ const challenges: Challenge[] = [
     detail: "Current sleep comparison for this week",
     outcome: "active",
     timeLeft: "3 days left",
-    amount: 18,
+    amount: 0.008,
     yourSleep: [9.1, 9.3, 6.0, 10.6],
     opponentSleep: [10.8, 5.9, 7.6, 6.1],
   },
@@ -42,7 +42,7 @@ const challenges: Challenge[] = [
     status: "Completed challenge",
     detail: "Match history from the last challenge",
     outcome: "won",
-    amount: 24,
+    amount: 0.002,
     yourSleep: [6.4, 8.8, 4.6, 10.2, 10.0, 7.9, 10.3],
     opponentSleep: [9.1, 6.5, 7.2, 10.7, 7.6, 9.4, 5.8],
   },
@@ -52,7 +52,7 @@ const challenges: Challenge[] = [
     status: "Completed challenge",
     detail: "Final results from the previous matchup",
     outcome: "lost",
-    amount: 16,
+    amount: 0.016,
     yourSleep: [8.2, 9.9, 8.9, 4.8, 6.1, 5.9, 4.7],
     opponentSleep: [5.5, 5.8, 6.7, 6.1, 9.9, 10.2, 11.0],
   },
@@ -166,10 +166,10 @@ export default function StatsPage() {
                       {challenge.amount ? (
                         <p className="text-xs font-medium opacity-90">
                           {challenge.timeLeft
-                            ? `Wager: $${challenge.amount}`
+                            ? `Wager: ${challenge.amount} Eth`
                             : challenge.outcome === "won"
-                              ? `+$${challenge.amount}`
-                              : `-$${challenge.amount}`}
+                              ? `+${challenge.amount} Eth`
+                              : `-${challenge.amount} Eth`}
                         </p>
                       ) : null}
                     </div>
