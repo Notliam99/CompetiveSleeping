@@ -132,12 +132,6 @@ export default function ChallengesPage() {
           </div>
 
           <div className="mt-4 flex flex-col items-center justify-center gap-3">
-            <div className="relative flex h-36 w-32 items-center justify-center rounded-[1.75rem] border border-violet-200 bg-gradient-to-br from-violet-50 to-white p-3 shadow-sm dark:border-violet-900/40 dark:from-violet-950/40 dark:to-zinc-900">
-              <div className="absolute inset-0 rounded-[1.75rem] border border-violet-100 dark:border-violet-900/30" />
-              <div className="relative flex h-24 w-20 items-center justify-center">
-                <LuClock3 className="text-[5rem] text-violet-300/90 dark:text-violet-900/70" />
-              </div>
-            </div>
             <div className="text-center">
               <div className="text-xl font-semibold text-zinc-900 dark:text-white">{duration} week{duration > 1 ? "s" : ""}</div>
               <div className="text-sm text-zinc-500 dark:text-zinc-400">Drag the slider to adjust</div>
