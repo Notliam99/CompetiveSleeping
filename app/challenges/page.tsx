@@ -13,11 +13,11 @@ import { useSwipeNavigation } from "@/app/hooks/useSwipeNavigation";
 
 const weekOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const wagerOptions = [
-  { label: "0.0003 ETH", eth: "0.0003", subtitle: "$1" },
-  { label: "0.0016 ETH", eth: "0.0016", subtitle: "$5" },
-  { label: "0.0062 ETH", eth: "0.0062", subtitle: "$20" },
-  { label: "0.0156 ETH", eth: "0.0156", subtitle: "$50" },
-  { label: "0.0312 ETH", eth: "0.0312", subtitle: "$100" },
+  { label: "$1", eth: "0.0003", usd: "$1" },
+  { label: "$5", eth: "0.0016", usd: "$5" },
+  { label: "$10", eth: "0.0031", usd: "$10" },
+  { label: "$50", eth: "0.0156", usd: "$50" },
+  { label: "$100", eth: "0.0312", usd: "$100" },
 ];
 
 export default function ChallengesPage() {
@@ -172,8 +172,11 @@ export default function ChallengesPage() {
             <div className="rounded-full bg-violet-100 px-4 py-2 text-sm font-semibold text-violet-700 dark:bg-violet-950/40 dark:text-violet-300">
               {selectedWager.eth} ETH
             </div>
+            <div className="text-xl font-semibold text-zinc-900 dark:text-white">
+              {selectedWager.label}
+            </div>
             <div className="text-sm text-zinc-500 dark:text-zinc-400">
-              {selectedWager.subtitle}
+              Approx. {selectedWager.usd}
             </div>
           </div>
         </div>

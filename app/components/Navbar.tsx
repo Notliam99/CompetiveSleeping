@@ -1,5 +1,6 @@
 "use client";
 
+import { usePrivy } from "@privy-io/react-auth";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LuChartBar, LuTarget, LuUserRound, LuSettings2, LuWallet } from "react-icons/lu";
@@ -14,6 +15,15 @@ const tabs = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const { ready, authenticated, user } = usePrivy();
+
+  if (!ready) {
+    return null;
+  }
+
+  if (!authenticated || !user) {
+    return null;
+  }
 
   const getActiveTab = () => {
     for (const tab of tabs) {

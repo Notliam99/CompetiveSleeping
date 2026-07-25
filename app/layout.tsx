@@ -33,9 +33,11 @@ export default function RootLayout({
     >
       <body className="m-0 flex h-full flex-col bg-white dark:bg-zinc-950">
         <div className="flex flex-1 flex-col overflow-hidden">
-          <PrivyProviders><AppShell>{children}</AppShell></PrivyProviders>
+          <PrivyProviders>
+            <AppShell>{children}</AppShell>
+            <Navbar />
+          </PrivyProviders>
         </div>
-        <Navbar />
       </body>
     </html>
   );
