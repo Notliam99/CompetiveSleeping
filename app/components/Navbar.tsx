@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LuChartBar, LuTarget, LuUserRound, LuSettings2, LuWallet } from "react-icons/lu";
+import { LuChartBar, LuHeart, LuTarget, LuSettings2, LuWallet } from "react-icons/lu";
 
 const tabs = [
   { id: "wallet", label: "Wallet", icon: LuWallet },
   { id: "stats", label: "Stats", icon: LuChartBar },
   { id: "challenges", label: "Challenge", icon: LuTarget },
-  { id: "personal", label: "Personal", icon: LuUserRound },
+  { id: "personal", label: "Health", icon: LuHeart },
   { id: "profile", label: "Profile", icon: LuSettings2 },
 ];
 

@@ -3,30 +3,24 @@
 import {
   LuBellRing,
   LuBrain,
-  LuCrown,
   LuLock,
   LuLogOut,
   LuMoonStar,
   LuSettings2,
-  LuShieldCheck,
-  LuSparkles,
 } from "react-icons/lu";
+import { PageHeader } from "@/app/components/PageHeader";
 import { useSwipeNavigation } from "@/app/hooks/useSwipeNavigation";
 
 export default function ProfilePage() {
   useSwipeNavigation();
 
   return (
-    <div className="p-4 space-y-6">
-      <div>
-        <h1 className="mb-2 flex items-center gap-2 text-3xl font-bold text-zinc-900 dark:text-white">
-          <LuSettings2 className="text-2xl text-blue-600 dark:text-blue-400" />
-          <span>Profile</span>
-        </h1>
-        <p className="text-zinc-600 dark:text-zinc-400">
-          Manage your account settings
-        </p>
-      </div>
+    <div className="space-y-6 p-4">
+      <PageHeader
+        icon={LuSettings2}
+        title="Profile"
+        description="Manage your account settings"
+      />
 
       <div className="flex flex-col items-center py-4">
         <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-500 text-4xl">
@@ -49,50 +43,6 @@ export default function ProfilePage() {
               user@sleep.app
             </span>
           </div>
-          <div className="flex justify-between">
-            <span className="text-zinc-600 dark:text-zinc-400">
-              Member Since
-            </span>
-            <span className="font-medium text-zinc-900 dark:text-white">
-              Jan 15, 2024
-            </span>
-          </div>
-          <div className="flex justify-between">
-            <span className="text-zinc-600 dark:text-zinc-400">
-              Account Level
-            </span>
-            <span className="font-medium text-blue-600 dark:text-blue-400">
-              Gold
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-zinc-50 dark:bg-zinc-800 rounded-lg p-4">
-        <h3 className="font-semibold text-zinc-900 dark:text-white mb-3">
-          Achievements
-        </h3>
-        <div className="grid grid-cols-4 gap-3">
-          {[
-            { icon: LuMoonStar, label: "Sleeper" },
-            { icon: LuSparkles, label: "Streak" },
-            { icon: LuCrown, label: "Star" },
-            { icon: LuShieldCheck, label: "Elite" },
-          ].map((achievement, i) => {
-            const Icon = achievement.icon;
-
-            return (
-              <div
-                key={i}
-                className="flex flex-col items-center rounded bg-white p-2 dark:bg-zinc-700"
-              >
-                <Icon className="text-2xl text-zinc-700 dark:text-zinc-200" />
-                <span className="mt-1 text-center text-xs text-zinc-600 dark:text-zinc-400">
-                  {achievement.label}
-                </span>
-              </div>
-            );
-          })}
         </div>
       </div>
 

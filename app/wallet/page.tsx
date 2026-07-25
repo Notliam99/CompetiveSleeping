@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { LuCopy, LuWallet } from "react-icons/lu";
+import { PageHeader } from "@/app/components/PageHeader";
 import { useSwipeNavigation } from "@/app/hooks/useSwipeNavigation";
 
 const transactions = [
@@ -28,20 +29,12 @@ export default function WalletPage() {
   };
 
   return (
-    <div className="p-4 pb-24 space-y-4">
-      <div className="flex items-center gap-3">
-        <div className="rounded-2xl bg-purple-100 p-2 text-purple-600 dark:bg-purple-900/40 dark:text-purple-300">
-          <LuWallet className="h-6 w-6" />
-        </div>
-        <div>
-          <h1 className="text-3xl font-bold text-zinc-900 dark:text-white">
-            Wallet
-          </h1>
-          <p className="text-zinc-600 dark:text-zinc-400">
-            Manage your ETH balance and challenge payouts.
-          </p>
-        </div>
-      </div>
+    <div className="space-y-4 p-4 pb-24">
+      <PageHeader
+        icon={LuWallet}
+        title="Wallet"
+        description="Manage your ETH balance and challenge payouts."
+      />
 
       <div className="rounded-3xl border border-purple-200 bg-purple-50 p-4 shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
         <p className="text-sm text-zinc-600 dark:text-zinc-400">Account details</p>

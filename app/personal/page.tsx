@@ -1,6 +1,7 @@
 "use client";
 
-import { LuUserRound } from "react-icons/lu";
+import { LuHeart } from "react-icons/lu";
+import { PageHeader } from "@/app/components/PageHeader";
 import { useSwipeNavigation } from "@/app/hooks/useSwipeNavigation";
 
 const sleepTrendData = [
@@ -15,16 +16,12 @@ export default function PersonalPage() {
   useSwipeNavigation();
 
   return (
-    <div className="h-full overflow-y-auto p-4 space-y-4">
-      <div className="rounded-2xl border border-zinc-200 bg-white/80 p-4 shadow-sm dark:border-zinc-700 dark:bg-zinc-900/70">
-        <h1 className="mb-1 flex items-center gap-2 text-2xl font-bold text-zinc-900 dark:text-white">
-          <LuUserRound className="text-xl text-blue-600 dark:text-blue-400" />
-          <span>Personal Info</span>
-        </h1>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">
-          Manage your sleep preferences and goals
-        </p>
-      </div>
+    <div className="h-full overflow-y-auto space-y-4 p-4">
+      <PageHeader
+        icon={LuHeart}
+        title="Health"
+        description="Manage your sleep preferences and goals"
+      />
 
       <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4 shadow-sm dark:border-zinc-700 dark:bg-zinc-800">
         <div className="flex items-start justify-between gap-3">
