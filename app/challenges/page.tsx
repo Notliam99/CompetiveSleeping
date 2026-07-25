@@ -1,13 +1,22 @@
 "use client";
 
 import { useState } from "react";
+import {
+  LuBell,
+  LuClock3,
+  LuCloud,
+  LuTarget,
+  LuTrophy,
+  LuUsers,
+} from "react-icons/lu";
 import { useSwipeNavigation } from "@/app/hooks/useSwipeNavigation";
 
-const durationOptions = [7, 10, 14, 21, 28];
+const weekOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 export default function ChallengesPage() {
   useSwipeNavigation();
-  const [duration, setDuration] = useState<number>(7);
+  const [duration, setDuration] = useState<number>(1);
+  const [dragging, setDragging] = useState(false);
 
   const challenges = [
     {
@@ -49,116 +58,91 @@ export default function ChallengesPage() {
   ];
 
   return (
-    <div className="p-4 space-y-4">
-      <div className="flex items-center justify-between gap-3">
-        <div>
-          <h1 className="text-3xl font-bold text-zinc-900 dark:text-white mb-2">
-            🎯 Challenges
+    <div className="flex h-full min-h-0 flex-col gap-3 overflow-hidden p-4">
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0">
+          <h1 className="mb-1 flex items-center gap-2 text-2xl font-bold text-zinc-900 dark:text-white">
+            <LuTarget className="text-2xl text-violet-600 dark:text-violet-400" />
+            <span>Challenge</span>
           </h1>
-          <p className="text-zinc-600 dark:text-zinc-400">
+          <p className="text-sm text-zinc-600 dark:text-zinc-400">
             Find opponents and join sleep tournaments.
           </p>
         </div>
-        <div className="flex gap-2">
-          <button className="rounded-full border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 px-3 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-200 shadow-sm">
-            🔔 Notifications
+        <div className="flex shrink-0 gap-2">
+          <button className="flex h-12 w-12 items-center justify-center rounded-full border border-zinc-200 bg-white text-lg font-medium text-zinc-700 shadow-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200">
+            <LuBell className="text-xl" />
           </button>
-          <button className="rounded-full border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 px-3 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-200 shadow-sm">
-            👥 Friends
+          <button className="flex h-12 w-12 items-center justify-center rounded-full border border-zinc-200 bg-white text-lg font-medium text-zinc-700 shadow-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200">
+            <LuUsers className="text-xl" />
           </button>
         </div>
       </div>
 
-      <div className="grid gap-3 md:grid-cols-2">
-        <div className="rounded-3xl border border-blue-200 dark:border-zinc-700 bg-blue-50 dark:bg-zinc-900 p-4 shadow-sm">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-sm font-semibold text-blue-800 dark:text-blue-300">
-              Goal Setting
-            </span>
-            <span className="rounded-full bg-blue-200/70 px-2 py-1 text-[11px] font-semibold text-blue-800 dark:bg-blue-400/10 dark:text-blue-300">
-              Personal
-            </span>
-          </div>
-          <div className="space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
-            <p>• Sleep 8+ hours for 7 nights</p>
-            <p>• Be asleep by 10 PM tonight</p>
-            <p>• Keep a 14-day consistency streak</p>
-          </div>
-        </div>
+      <div className="grid grid-cols-2 gap-3">
+        <button className="flex items-center justify-center gap-2 rounded-[1.5rem] border border-blue-200 bg-blue-50 p-4 text-center text-sm font-semibold text-blue-800 shadow-sm transition hover:opacity-90 dark:border-zinc-700 dark:bg-zinc-900 dark:text-blue-300">
+          <LuTarget className="text-lg" />
+          <span>Goal Setting</span>
+        </button>
 
-        <div className="rounded-3xl border border-fuchsia-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 p-4 shadow-sm">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-sm font-semibold text-fuchsia-700 dark:text-fuchsia-300">
-              Tournaments
-            </span>
-            <span className="rounded-full bg-fuchsia-200/70 px-2 py-1 text-[11px] font-semibold text-fuchsia-700 dark:bg-fuchsia-400/10 dark:text-fuchsia-300">
-              Join
-            </span>
-          </div>
-          <div className="space-y-3 text-sm text-zinc-700 dark:text-zinc-300">
-            <div className="rounded-2xl bg-zinc-100 dark:bg-zinc-800 p-3">
-              <p className="font-semibold text-zinc-900 dark:text-white">Night Sprint</p>
-              <p className="mt-1 text-[13px] text-zinc-600 dark:text-zinc-400">Live now • 3 open slots</p>
-            </div>
-            <div className="rounded-2xl bg-zinc-100 dark:bg-zinc-800 p-3">
-              <p className="font-semibold text-zinc-900 dark:text-white">Dream League</p>
-              <p className="mt-1 text-[13px] text-zinc-600 dark:text-zinc-400">Starts in 2h • 12 players</p>
-            </div>
-          </div>
-        </div>
+        <button className="flex items-center justify-center gap-2 rounded-[1.5rem] border border-fuchsia-200 bg-white p-4 text-center text-sm font-semibold text-fuchsia-700 shadow-sm transition hover:opacity-90 dark:border-zinc-700 dark:bg-zinc-900 dark:text-fuchsia-300">
+          <LuTrophy className="text-lg" />
+          <span>Tournaments</span>
+        </button>
       </div>
 
-      <div className="rounded-3xl border border-zinc-200 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-900 p-4 shadow-sm">
-        <div className="flex items-center gap-3 overflow-x-auto pb-2">
-          {durationOptions.map((option) => (
-            <button
-              key={option}
-              onClick={() => setDuration(option)}
-              className={`min-w-[80px] rounded-2xl border px-3 py-2 text-sm font-medium transition ${
-                duration === option
-                  ? "border-blue-500 bg-blue-500 text-white"
-                  : "border-transparent bg-white/80 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
-              }`}
-            >
-              {option} days
-            </button>
-          ))}
+      <div className="rounded-[1.5rem] border border-zinc-200 bg-zinc-100 p-3 shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
+        <div className="mb-3 text-center text-sm font-semibold text-zinc-700 dark:text-zinc-300">
+          <span>Challenge duration</span>
         </div>
-        <div className="flex items-center gap-3 rounded-3xl bg-white dark:bg-zinc-800 p-4 shadow-inner">
-          <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-blue-50 dark:bg-blue-950 text-2xl">
-            ⏳
-          </div>
-          <div className="flex-1">
-            <div className="flex items-center justify-between text-sm text-zinc-600 dark:text-zinc-400 mb-2">
-              <span>Challenge duration</span>
-              <span>{duration} days</span>
-            </div>
-            <div className="h-3 overflow-hidden rounded-full bg-zinc-300 dark:bg-zinc-700">
+
+        <div className="rounded-[1.5rem] bg-white p-4 shadow-inner dark:bg-zinc-800">
+          <div
+            className="mx-auto flex w-full max-w-[260px] items-center justify-center"
+            onMouseDown={() => setDragging(true)}
+            onMouseUp={() => setDragging(false)}
+            onMouseLeave={() => setDragging(false)}
+            onMouseMove={(event) => {
+              if (!dragging) return;
+              const rect = event.currentTarget.getBoundingClientRect();
+              const progress = (event.clientX - rect.left) / rect.width;
+              const nextValue = Math.max(1, Math.min(10, Math.round(progress * 9) + 1));
+              setDuration(nextValue);
+            }}
+          >
+            <div className="relative h-3 w-full rounded-full bg-violet-100 dark:bg-zinc-700">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 transition-all"
-                style={{ width: `${Math.max((duration / 28) * 100, (7 / 28) * 100)}%` }}
+                className="absolute inset-y-0 left-0 rounded-full bg-violet-600 transition-all dark:bg-violet-500"
+                style={{ width: `${((duration - 1) / 9) * 100}%` }}
+              />
+              <div
+                className="absolute top-1/2 h-4 w-4 -translate-y-1/2 rounded-full border-2 border-white bg-violet-600 shadow-sm dark:border-zinc-800 dark:bg-violet-500"
+                style={{ left: `calc(${((duration - 1) / 9) * 100}% - 8px)` }}
               />
             </div>
-            <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-400">
-              Minimum duration is one week.
-            </p>
+          </div>
+
+          <div className="mt-4 flex flex-col items-center justify-center gap-3">
+            <div className="relative flex h-36 w-32 items-center justify-center rounded-[1.75rem] border border-violet-200 bg-gradient-to-br from-violet-50 to-white p-3 shadow-sm dark:border-violet-900/40 dark:from-violet-950/40 dark:to-zinc-900">
+              <div className="absolute inset-0 rounded-[1.75rem] border border-violet-100 dark:border-violet-900/30" />
+              <div className="relative flex h-24 w-20 items-center justify-center">
+                <LuClock3 className="text-[5rem] text-violet-300/90 dark:text-violet-900/70" />
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="text-xl font-semibold text-zinc-900 dark:text-white">{duration} week{duration > 1 ? "s" : ""}</div>
+              <div className="text-sm text-zinc-500 dark:text-zinc-400">Drag the slider to adjust</div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="rounded-[3rem] bg-gradient-to-br from-sky-100 via-white to-violet-100 dark:from-slate-900 dark:via-zinc-950 dark:to-indigo-950 p-6 text-center shadow-[0_24px_50px_-20px_rgba(15,23,42,0.35)]">
-        <div className="relative mx-auto mb-4 h-24 w-full max-w-xs">
-          <div className="absolute -left-5 top-8 h-14 w-14 rounded-full bg-white/90 dark:bg-zinc-900 blur-0"></div>
-          <div className="absolute -right-5 top-10 h-12 w-12 rounded-full bg-white/90 dark:bg-zinc-900 blur-0"></div>
-          <button className="relative z-10 inline-flex items-center justify-center gap-3 rounded-[3rem] bg-white px-10 py-6 text-xl font-semibold text-zinc-900 shadow-xl ring-1 ring-zinc-200 dark:bg-zinc-950 dark:text-white dark:ring-zinc-700">
-            <span className="text-2xl">☁️</span>
-            Search
-          </button>
-        </div>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">
-          Search for opponents and start a sleep match.
-        </p>
-      </div>
+      <button className="flex min-h-[72px] w-full items-center justify-center rounded-[999px] bg-transparent px-4 py-2 text-left transition hover:opacity-95">
+        <span className="inline-flex items-center justify-center gap-3 rounded-[999px] bg-violet-600 px-10 py-5 text-xl font-semibold text-white shadow-lg shadow-violet-200 dark:bg-violet-500 dark:shadow-violet-950/40">
+          <LuCloud className="text-2xl" />
+          <span>Search</span>
+        </span>
+      </button>
     </div>
   );
 }
