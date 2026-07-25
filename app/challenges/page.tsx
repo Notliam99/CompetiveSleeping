@@ -10,6 +10,7 @@ import {
   LuUsers,
 } from "react-icons/lu";
 import { useSwipeNavigation } from "@/app/hooks/useSwipeNavigation";
+import PageHeader from "@/app/components/PageHeader";
 
 const weekOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const wagerOptions = [
@@ -68,25 +69,21 @@ export default function ChallengesPage() {
 
   return (
     <div className="flex h-full min-h-0 flex-col gap-3 overflow-hidden p-4">
-      <div className="flex items-start justify-between gap-3">
-        <div className="min-w-0">
-          <h1 className="mb-1 flex items-center gap-2 text-2xl font-bold text-zinc-900 dark:text-white">
-            <LuTarget className="text-2xl text-violet-600 dark:text-violet-400" />
-            <span>Challenge</span>
-          </h1>
-          <p className="text-sm text-zinc-600 dark:text-zinc-400">
-            Find opponents and join sleep tournaments.
-          </p>
-        </div>
-        <div className="flex shrink-0 gap-2">
-          <button className="flex h-12 w-12 items-center justify-center rounded-full border border-zinc-200 bg-white text-lg font-medium text-zinc-700 shadow-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200">
-            <LuBell className="text-xl" />
-          </button>
-          <button className="flex h-12 w-12 items-center justify-center rounded-full border border-zinc-200 bg-white text-lg font-medium text-zinc-700 shadow-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200">
-            <LuUsers className="text-xl" />
-          </button>
-        </div>
-      </div>
+      <PageHeader
+        icon={LuTarget}
+        title="Challenge"
+        description="Find opponents and join sleep tournaments."
+        actions={
+          <>
+            <button className="flex h-12 w-12 items-center justify-center rounded-full border border-zinc-200 bg-white text-lg font-medium text-zinc-700 shadow-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200">
+              <LuBell className="text-xl" />
+            </button>
+            <button className="flex h-12 w-12 items-center justify-center rounded-full border border-zinc-200 bg-white text-lg font-medium text-zinc-700 shadow-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200">
+              <LuUsers className="text-xl" />
+            </button>
+          </>
+        }
+      />
 
       <div className="grid grid-cols-2 gap-3">
         <button className="flex items-center justify-center gap-2 rounded-[1.5rem] border border-blue-200 bg-blue-50 p-4 text-center text-sm font-semibold text-blue-800 shadow-sm transition hover:opacity-90 dark:border-zinc-700 dark:bg-zinc-900 dark:text-blue-300">

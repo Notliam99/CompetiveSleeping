@@ -2,6 +2,8 @@
 
 import { usePrivy } from "@privy-io/react-auth";
 import { useSwipeNavigation } from "@/app/hooks/useSwipeNavigation";
+import { LuSettings2 } from "react-icons/lu";
+import PageHeader from "@/app/components/PageHeader";
 
 export default function ProfilePage() {
   useSwipeNavigation();
@@ -31,14 +33,11 @@ export default function ProfilePage() {
 
   return (
     <div className="p-4 space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold text-zinc-900 dark:text-white mb-2">
-          ⚙️ Profile
-        </h1>
-        <p className="text-zinc-600 dark:text-zinc-400">
-          Manage your account settings
-        </p>
-      </div>
+      <PageHeader
+        icon={LuSettings2}
+        title="Profile"
+        description="Manage your account settings"
+      />
 
         <div className="flex flex-col items-center py-4">
         <div className="w-20 h-20 rounded-full bg-gradient-to-br from-accent-500 to-accent-700 flex items-center justify-center text-4xl">
@@ -77,38 +76,6 @@ export default function ProfilePage() {
               Jan 15, 2024
             </span>
           </div>
-          <div className="flex justify-between">
-            <span className="text-zinc-600 dark:text-zinc-400">
-              Account Level
-            </span>
-            <span className="font-medium text-accent-600 dark:text-accent-400">
-              Gold
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-zinc-50 dark:bg-zinc-800 rounded-lg p-4">
-        <h3 className="font-semibold text-zinc-900 dark:text-white mb-3">
-          Achievements
-        </h3>
-        <div className="grid grid-cols-4 gap-3">
-          {[
-            { emoji: "😴", label: "Sleeper" },
-            { emoji: "🔥", label: "Streak" },
-            { emoji: "⭐", label: "Star" },
-            { emoji: "💎", label: "Elite" },
-          ].map((achievement, i) => (
-            <div
-              key={i}
-              className="flex flex-col items-center p-2 bg-white dark:bg-zinc-700 rounded"
-            >
-              <span className="text-3xl">{achievement.emoji}</span>
-              <text className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 text-center">
-                {achievement.label}
-              </text>
-            </div>
-          ))}
         </div>
       </div>
 
