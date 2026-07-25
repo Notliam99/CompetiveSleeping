@@ -31,7 +31,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="m-0 flex h-full flex-col bg-white dark:bg-zinc-950">
+      <body className="m-0 flex h-full flex-col bg-violet-50 dark:bg-zinc-950">
         <div className="flex flex-1 flex-col overflow-hidden">
           <PrivyProviders><AppShell>{children}</AppShell></PrivyProviders>
         </div>

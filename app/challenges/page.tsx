@@ -69,7 +69,7 @@ export default function ChallengesPage() {
   ];
 
   return (
-    <div className="flex h-full min-h-0 flex-col gap-3 overflow-hidden p-4">
+    <div className="flex min-h-screen flex-col gap-3 bg-violet-50 p-4 dark:bg-zinc-950">
       <PageHeader
         icon={LuTarget}
         title="Challenge"
@@ -77,23 +77,23 @@ export default function ChallengesPage() {
       />
 
       <div className="grid grid-cols-2 gap-3">
-        <button className="flex items-center justify-center gap-2 rounded-[1.5rem] border border-blue-200 bg-blue-50 p-4 text-center text-sm font-semibold text-blue-800 shadow-sm transition hover:opacity-90 dark:border-zinc-700 dark:bg-zinc-900 dark:text-blue-300">
+        <button className="flex items-center justify-center gap-2 rounded-[1.5rem] border border-violet-200 bg-white p-4 text-center text-sm font-semibold text-violet-700 shadow-sm transition hover:border-violet-300 hover:bg-violet-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-violet-300">
           <LuTarget className="text-lg" />
           <span>Goal Setting</span>
         </button>
 
-        <button className="flex items-center justify-center gap-2 rounded-[1.5rem] border border-fuchsia-200 bg-white p-4 text-center text-sm font-semibold text-fuchsia-700 shadow-sm transition hover:opacity-90 dark:border-zinc-700 dark:bg-zinc-900 dark:text-fuchsia-300">
+        <button className="flex items-center justify-center gap-2 rounded-[1.5rem] border border-violet-200 bg-white p-4 text-center text-sm font-semibold text-violet-700 shadow-sm transition hover:border-violet-300 hover:bg-violet-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-violet-300">
           <LuTrophy className="text-lg" />
           <span>Tournaments</span>
         </button>
       </div>
 
-      <div className="rounded-[1.5rem] border border-zinc-200 bg-zinc-100 p-3 shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
-        <div className="mb-3 text-center text-sm font-semibold text-zinc-700 dark:text-zinc-300">
+      <div className="rounded-[1.5rem] border border-violet-200 bg-white p-3 shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
+        <div className="mb-3 text-center text-sm font-semibold text-violet-700 dark:text-zinc-300">
           <span>Challenge duration</span>
         </div>
 
-        <div className="rounded-[1.5rem] bg-white p-4 shadow-inner dark:bg-zinc-800">
+        <div className="rounded-[1.5rem] bg-violet-50 p-4 shadow-inner dark:bg-zinc-800">
           <div className="mx-auto w-full max-w-[280px]">
             <div className="relative py-2">
               <div className="pointer-events-none absolute inset-x-0 top-1/2 h-3 -translate-y-1/2 rounded-full bg-violet-100 dark:bg-zinc-700" />
@@ -144,12 +144,12 @@ export default function ChallengesPage() {
         </div>
       </div>
 
-      <div className="rounded-[1.5rem] border border-zinc-200 bg-zinc-100 p-3 shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
-        <div className="mb-3 text-center text-sm font-semibold text-zinc-700 dark:text-zinc-300">
+      <div className="rounded-[1.5rem] border border-violet-200 bg-white p-3 shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
+        <div className="mb-3 text-center text-sm font-semibold text-violet-700 dark:text-zinc-300">
           <span>Wager amount</span>
         </div>
 
-        <div className="rounded-[1.5rem] bg-white p-4 shadow-inner dark:bg-zinc-800">
+        <div className="rounded-[1.5rem] bg-violet-50 p-4 shadow-inner dark:bg-zinc-800">
           <div className="mx-auto w-full max-w-[280px]">
             <div className="relative py-2">
               <div className="pointer-events-none absolute inset-x-0 top-1/2 h-3 -translate-y-1/2 rounded-full bg-violet-100 dark:bg-zinc-700" />
