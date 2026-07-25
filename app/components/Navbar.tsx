@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LuChartBar, LuTarget, LuUserRound, LuSettings2 } from "react-icons/lu";
+import { LuChartBar, LuTarget, LuUserRound, LuSettings2, LuWallet } from "react-icons/lu";
 
 const tabs = [
+  { id: "wallet", label: "Wallet", icon: LuWallet },
   { id: "stats", label: "Stats", icon: LuChartBar },
   { id: "challenges", label: "Challenge", icon: LuTarget },
   { id: "personal", label: "Personal", icon: LuUserRound },
@@ -36,7 +37,7 @@ export default function Navbar() {
             href={`/${tab.id}`}
             className={`flex-1 flex flex-col items-center justify-center gap-1 py-2 transition-colors ${
               activeTab === tab.id
-                ? "text-blue-600 dark:text-blue-400"
+                ? "text-purple-600 dark:text-purple-400"
                 : "text-zinc-500 dark:text-zinc-400"
             }`}
           >
