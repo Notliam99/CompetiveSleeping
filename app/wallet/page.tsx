@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { usePrivy, useWallets } from "@privy-io/react-auth";
 import { LuCopy, LuWallet } from "react-icons/lu";
 import { PageHeader } from "@/app/components/PageHeader";
 import { useSwipeNavigation } from "@/app/hooks/useSwipeNavigation";
@@ -15,10 +16,64 @@ const transactions = [
 export default function WalletPage() {
   useSwipeNavigation();
   const [copied, setCopied] = useState(false);
-  const accountId = "0x111C7D01f2Cc0E18EAD9886612BfC1eF7A9cD3b2";
-  const maskedAccountId = `${accountId.slice(0, 6)}...${accountId.slice(-4)}`;
+  const [balance, setBalance] = useState<string>("--");
+  const { user } = usePrivy();
+  const { wallets, ready } = useWallets();
+  const primaryWallet =
+    wallets.find((wallet) => wallet.address === user?.wallet?.address) ??
+    wallets[0];
+  const accountId = primaryWallet?.address ?? user?.wallet?.address ?? "No wallet linked";
+  const maskedAccountId =
+    accountId && accountId !== "No wallet linked"
+      ? `${accountId.slice(0, 6)}...${accountId.slice(-4)}`
+      : accountId;
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadBalance() {
+      if (!ready || !primaryWallet) {
+        setBalance("--");
+        return;
+      }
+
+      try {
+        const provider = await primaryWallet.getEthereumProvider();
+        const hexBalance = await provider.request({
+          method: "eth_getBalance",
+          params: [primaryWallet.address, "latest"],
+        });
+
+        if (cancelled || typeof hexBalance !== "string") {
+          return;
+        }
+
+        const weiPerEth = BigInt("1000000000000000000");
+        const displayPrecision = BigInt("10000");
+        const wei = BigInt(hexBalance);
+        const whole = wei / weiPerEth;
+        const fraction = Number(((wei % weiPerEth) * displayPrecision) / weiPerEth);
+        const formatted = `${whole.toString()}.${fraction.toString().padStart(4, "0").replace(/0+$/, "") || "0"}`;
+        setBalance(formatted);
+      } catch {
+        if (!cancelled) {
+          setBalance("--");
+        }
+      }
+    }
+
+    void loadBalance();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [primaryWallet, ready]);
 
   const handleCopy = async () => {
+    if (!primaryWallet && !user?.wallet?.address) {
+      return;
+    }
+
     try {
       await navigator.clipboard.writeText(accountId);
       setCopied(true);
@@ -44,7 +99,7 @@ export default function WalletPage() {
               {maskedAccountId}
             </p>
             <p className="text-sm text-violet-700 dark:text-violet-300">
-              Primary account • Verified
+              {primaryWallet ? "Primary account • Connected" : "No connected wallet"}
             </p>
           </div>
           <button
@@ -67,8 +122,8 @@ export default function WalletPage() {
         <p className="text-sm text-violet-600 dark:text-zinc-400">Current balance</p>
         <div className="mt-2 flex items-end justify-between">
           <div>
-            <p className="text-4xl font-semibold text-zinc-900 dark:text-white">1.02 ETH</p>
-            <p className="mt-1 text-sm text-violet-700 dark:text-violet-300">~ NZ$ 3,271</p>
+            <p className="text-4xl font-semibold text-zinc-900 dark:text-white">{balance} ETH</p>
+            <p className="mt-1 text-sm text-violet-700 dark:text-violet-300">Live wallet balance</p>
           </div>
           <div className="rounded-full bg-violet-100 px-3 py-2 text-sm font-medium text-violet-700 shadow-sm dark:bg-zinc-800 dark:text-zinc-200">
             Secure

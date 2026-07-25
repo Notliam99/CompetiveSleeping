@@ -69,7 +69,7 @@ export default function ChallengesPage() {
   ];
 
   return (
-    <div className="flex min-h-screen flex-col gap-3 bg-violet-50 p-4 dark:bg-zinc-950">
+    <div className="flex h-[calc(100dvh-5rem)] min-h-0 flex-col gap-3 overflow-hidden bg-violet-50 p-4 dark:bg-zinc-950">
       <PageHeader
         icon={LuTarget}
         title="Challenge"
@@ -198,8 +198,8 @@ export default function ChallengesPage() {
         </div>
       </div>
 
-      <button className="flex min-h-[84px] w-full items-center justify-center rounded-[999px] bg-transparent px-4 py-2 text-left transition hover:opacity-95">
-        <span className="inline-flex min-w-[220px] items-center justify-center gap-3 rounded-[999px] bg-violet-600 px-10 py-6 text-2xl font-semibold text-white shadow-lg shadow-violet-200 dark:bg-violet-500 dark:shadow-violet-950/40">
+      <button className="mt-auto flex w-full items-center justify-center rounded-[999px] bg-transparent px-4 py-2 text-left transition hover:opacity-95">
+        <span className="inline-flex min-w-[220px] items-center justify-center gap-3 rounded-[999px] bg-violet-600 px-10 py-5 text-2xl font-semibold text-white shadow-lg shadow-violet-200 dark:bg-violet-500 dark:shadow-violet-950/40">
           <LuCloud className="text-2xl" />
           <span>Search</span>
         </span>
