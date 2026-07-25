@@ -1,5 +1,6 @@
 "use client";
 
+import { LuChartBar } from "react-icons/lu";
 import { useSwipeNavigation } from "@/app/hooks/useSwipeNavigation";
 import {
   CartesianGrid,
@@ -103,8 +104,9 @@ export default function StatsPage() {
   return (
     <div className="min-h-screen space-y-0 bg-violet-50 p-0 dark:bg-zinc-950">
       <div className="border-b border-violet-200 bg-white px-4 py-4 dark:border-zinc-800 dark:bg-zinc-900">
-        <h1 className="mb-1 text-3xl font-bold text-violet-900 dark:text-white">
-          📊 Stats
+        <h1 className="mb-1 flex items-center gap-2 text-3xl font-bold text-violet-900 dark:text-white">
+          <LuChartBar className="text-2xl text-violet-600 dark:text-violet-400" />
+          <span>Stats</span>
         </h1>
         <p className="text-violet-700 dark:text-zinc-400">
           Your active challenges, opponent sleep trends, and match history
