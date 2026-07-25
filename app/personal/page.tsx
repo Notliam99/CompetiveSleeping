@@ -15,13 +15,13 @@ export default function PersonalPage() {
   useSwipeNavigation();
 
   return (
-    <div className="h-full overflow-hidden p-4 space-y-6">
-      <div>
-        <h1 className="mb-2 flex items-center gap-2 text-3xl font-bold text-zinc-900 dark:text-white">
-          <LuUserRound className="text-2xl text-blue-600 dark:text-blue-400" />
+    <div className="h-full overflow-y-auto p-4 space-y-4">
+      <div className="rounded-2xl border border-zinc-200 bg-white/80 p-4 shadow-sm dark:border-zinc-700 dark:bg-zinc-900/70">
+        <h1 className="mb-1 flex items-center gap-2 text-2xl font-bold text-zinc-900 dark:text-white">
+          <LuUserRound className="text-xl text-blue-600 dark:text-blue-400" />
           <span>Personal Info</span>
         </h1>
-        <p className="text-zinc-600 dark:text-zinc-400">
+        <p className="text-sm text-zinc-600 dark:text-zinc-400">
           Manage your sleep preferences and goals
         </p>
       </div>
@@ -41,21 +41,21 @@ export default function PersonalPage() {
           </div>
         </div>
 
-        <div className="mt-4 flex flex-col gap-3 sm:flex-row">
-          <div className="flex-1 rounded-xl bg-blue-50 p-4 dark:bg-blue-950/30">
+        <div className="mt-4 grid grid-cols-2 gap-3">
+          <div className="rounded-xl bg-blue-50 p-3 dark:bg-blue-950/30">
             <p className="text-sm text-zinc-600 dark:text-zinc-400">
               Tonight&apos;s Sleep
             </p>
-            <p className="mt-1 text-2xl font-bold text-blue-600 dark:text-blue-400">
+            <p className="mt-1 text-xl font-bold text-blue-600 dark:text-blue-400">
               8h 24m
             </p>
           </div>
 
-          <div className="flex-1 rounded-xl bg-green-50 p-4 dark:bg-green-950/30">
+          <div className="rounded-xl bg-green-50 p-3 dark:bg-green-950/30">
             <p className="text-sm text-zinc-600 dark:text-zinc-400">
               Weekly Average
             </p>
-            <p className="mt-1 text-2xl font-bold text-green-600 dark:text-green-400">
+            <p className="mt-1 text-xl font-bold text-green-600 dark:text-green-400">
               7h 45m
             </p>
           </div>
@@ -92,7 +92,7 @@ export default function PersonalPage() {
 
       <a
         href="/profile"
-        className="block rounded-xl border border-zinc-200 bg-gradient-to-r from-slate-50 to-zinc-100 p-4 transition hover:border-zinc-300 hover:shadow-sm dark:border-zinc-700 dark:from-zinc-800 dark:to-zinc-700 dark:hover:border-zinc-600"
+        className="block rounded-2xl border border-zinc-200 bg-gradient-to-r from-slate-50 to-zinc-100 p-4 transition hover:border-zinc-300 hover:shadow-sm dark:border-zinc-700 dark:from-zinc-800 dark:to-zinc-700 dark:hover:border-zinc-600"
       >
         <div className="flex items-center justify-between gap-3">
           <div>
