@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
 import { PrivyProviders } from "./components/privyproviders";
 import AppShell from "./components/AppShell";
 
@@ -31,11 +30,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="m-0 flex h-full flex-col bg-white dark:bg-zinc-950">
-        <div className="flex flex-1 flex-col overflow-hidden">
-          <PrivyProviders><AppShell>{children}</AppShell></PrivyProviders>
-        </div>
-        <Navbar />
+      <body className="m-0 flex h-full flex-col bg-violet-50 dark:bg-zinc-950">
+        <PrivyProviders>
+          <AppShell>{children}</AppShell>
+        </PrivyProviders>
       </body>
     </html>
   );

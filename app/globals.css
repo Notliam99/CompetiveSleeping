@@ -24,3 +24,35 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.duration-slider::-webkit-slider-runnable-track {
+  height: 0.75rem;
+  background: transparent;
+}
+
+.duration-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -0.375rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 9999px;
+  border: 3px solid #ffffff;
+  background: linear-gradient(135deg, #7c3aed, #c026d3);
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.25);
+}
+
+.duration-slider::-moz-range-track {
+  height: 0.75rem;
+  background: transparent;
+  border: 0;
+}
+
+.duration-slider::-moz-range-thumb {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 9999px;
+  border: 3px solid #ffffff;
+  background: linear-gradient(135deg, #7c3aed, #c026d3);
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.25);
+}
